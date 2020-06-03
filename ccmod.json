@@ -1,6 +1,6 @@
 {
-  "name": "libshader",
+  "id": "libshader",
+  "version": "0.0.0",
   "description": "Library for applying shaders to CrossCode (currently contains only a retro-style shader)",
-  "module": true,
   "plugin": "plugin.js"
 }

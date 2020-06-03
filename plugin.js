@@ -15,9 +15,8 @@
 
 import runPostload from './postload.js';
 
-export default class LibshaderPlugin extends Plugin {
+export default class LibshaderPlugin {
   constructor(mod) {
-    super(mod);
     this.baseDirectory = mod.baseDirectory;
   }
 
