@@ -21,25 +21,19 @@ export default class LibshaderPlugin {
   }
 
   /**
-   * @param {string} url
+   * @param {string} path
    * @returns {Promise<string>}
    */
-  async readFile(url) {
-    let response = await fetch('/' + this.baseDirectory + url);
-    return await response.text();
+  async readFile(path) {
+    return ccmod.resources.loadText(`/${this.baseDirectory}${path}`);
   }
 
   /**
-   * @param {string} url
+   * @param {string} path
    * @returns {Promise<HTMLImageElement>}
    */
-  async loadImage(url) {
-    return new Promise((resolve, reject) => {
-      let img = new Image();
-      img.src = '/' + this.baseDirectory + url;
-      img.onload = () => resolve(img);
-      img.onerror = () => reject(new Error(`Failed to load image '${url}'`));
-    });
+  async loadImage(path) {
+    return ccmod.resources.loadImage(`/${this.baseDirectory}${path}`);
   }
 
   async postload() {
